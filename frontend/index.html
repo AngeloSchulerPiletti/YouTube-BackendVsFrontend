@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button id="custom-button">CLIQUE PARA OBTER INFORMAÇÕES DO BACKEND</button>
+    <p id="server-response"></p>
+    <script>
+        var button = document.querySelector("#custom-button");
+        var paragraph = document.querySelector("#server-response");
+
+        button.addEventListener('click', () => {
+            var req = new XMLHttpRequest();
+            req.open("get", "https://localhost:7279/api/obter-texto/3/6");
+            req.onload = () => {
+                paragraph.innerHTML = req.response;
+            }
+            req.send();
+        });
+    </script>
+</body>
+</html>
